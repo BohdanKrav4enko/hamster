@@ -34,4 +34,7 @@ export const StyledLink = styled(Link)`
         transform: scale(0.97);
         background-color: rgba(255, 255, 255, 0.2);
     }
+    @media(max-width: 460px) {
+        font-size: 14px;
+    }
 `

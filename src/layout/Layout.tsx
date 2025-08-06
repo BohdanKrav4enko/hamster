@@ -3,15 +3,18 @@ import {RoutingButtons} from "../features/hamster/ui/routingButtons/RoutingButto
 import {ErrorMessage} from "../components/errorMessage/errorMessage.tsx";
 import {useAppSelector} from "../common/hooks/hooks.ts";
 import {useHamsterTimers} from "../common/hooks/useHamsterTimers.ts";
+import {LayoutWrapper} from "./LayoutStyles.tsx";
 
 
 export const Layout = () => {
-    const {error } = useAppSelector(state => state.hamster);
+    const {error} = useAppSelector(state => state.hamster);
     useHamsterTimers()
 
     return (
         <>
-            <Outlet/>
+            <LayoutWrapper>
+                <Outlet/>
+            </LayoutWrapper>
             {error && <ErrorMessage/>}
             <RoutingButtons/>
         </>

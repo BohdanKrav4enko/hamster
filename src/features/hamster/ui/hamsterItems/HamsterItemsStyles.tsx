@@ -7,7 +7,7 @@ export const HamsterPanel = styled.div`
 `
 export const StyledTextCount = styled.p`
     font-family: "Outfit", sans-serif;
-    font-size: 50px;
+    font-size: 46px;
     font-weight: 600;
     font-variant-numeric: tabular-nums;
     display: flex;
@@ -15,6 +15,9 @@ export const StyledTextCount = styled.p`
     justify-content: center;
     gap: 8px;
     color: white;
+    @media (max-height: 850px) {
+        font-size: 36px;
+    }
 `
 export const StyledButton = styled.button`
     border: none;
@@ -39,6 +42,10 @@ export const StyledButton = styled.button`
         object-fit: cover;
         user-select: none;
         pointer-events: none;
+    }
+    @media (max-height: 760px) {
+        max-width: 200px;
+        width: 100%;
     }
 
 `

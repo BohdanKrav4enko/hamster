@@ -1,8 +1,7 @@
-export type LevelConfig = {
-    level: number;
-    coins: number;
+export type Ability = {
+    id: number;
+    title: string;
     price: number;
-};
-export type LevelProgressBarProps = {
-    selectedLevelConfigurations: LevelConfig;
+    income: number;
+    owned: number;
 };
