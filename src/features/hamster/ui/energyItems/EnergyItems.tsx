@@ -1,29 +1,17 @@
 import BatteryGauge from "react-battery-gauge";
-import styled from "styled-components";
+import {useAppSelector} from "../../../../common/hooks/hooks.ts";
+import {EnergyPanel} from "./EnergyItemsStyles.tsx";
+import {MAX_ENERGY} from "../../../../components/constants/Constants.ts";
 
-type EnergyItemsProps = {
-    energy: number
-}
-export const EnergyPanel = styled.div`
-    width: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    p{
-        font-family: "Outfit", sans-serif;
-        font-weight: 600;
-        color: white;
-    }
-    
-`
-export const EnergyItems = (props: EnergyItemsProps) => {
-    const {energy} = props
+export const EnergyItems = () => {
+    const {energy} = useAppSelector(state => state.hamster);
+
     return (
         <EnergyPanel>
             <BatteryGauge
                 size={100}
                 orientation={"vertical"}
-                maxValue={100}
+                maxValue={MAX_ENERGY}
                 value={energy}
                 customization={{
                     batteryMeter: {
@@ -40,7 +28,6 @@ export const EnergyItems = (props: EnergyItemsProps) => {
                     batteryCap: {
                         strokeWidth: 2,
                         strokeColor: '#bcb3b3',
-
                     },
                 }}
             />

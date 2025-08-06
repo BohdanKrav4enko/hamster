@@ -1,16 +1,13 @@
 import styled from "styled-components";
+import {useAppSelector} from "../../common/hooks/hooks.ts";
 
-type ErrorMessageTypeProps = {
-    message: string
-}
-
-export const ErrorMessage = (props: ErrorMessageTypeProps ) => {
-    const { message } = props
+export const ErrorMessage = () => {
+    const {error} = useAppSelector(state => state.hamster);
 
 
     return (
         <ErrorContainer>
-            <p>Error: {message}</p>
+            <p>Error: {error}</p>
         </ErrorContainer>
     );
 };

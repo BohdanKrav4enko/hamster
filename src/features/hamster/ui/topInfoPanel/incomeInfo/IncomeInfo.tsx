@@ -1,24 +1,9 @@
-import type {LevelProgressBarProps} from "../TopInfoPanel.tsx";
-import styled from "styled-components";
+import {useLevelConfig} from "../../../../../common/hooks/useLevelConfig.ts";
+import {IncomeInfoContainer, IncomeItemContainer} from "./IncomeInfoStyles.tsx";
 
-export const IncomeInfoContainer = styled.div`
-    flex-direction: column;
-    display: flex;
-    justify-content: space-between;
-`
-export const IncomeItemContainer = styled.div`
-    gap: 10px;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    span{
-        font-family: "Outfit", sans-serif;
-        color: white;
-    }
-`
+export const IncomeInfo = () => {
+    const selectedLevelConfigurations = useLevelConfig()
 
-export const IncomeInfo = (props: LevelProgressBarProps) => {
-    const {selectedLevelConfigurations} = props
     return (
         <IncomeInfoContainer>
             <IncomeItemContainer>

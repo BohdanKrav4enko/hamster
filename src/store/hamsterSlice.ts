@@ -1,4 +1,5 @@
-import {createSlice, type PayloadAction} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import {levelConfigurations} from "../components/levelConfigurations/LevelConfigurations.tsx";
 import {MAX_ENERGY} from "../components/constants/Constants.ts";
 
 
@@ -20,20 +21,28 @@ const hamsterSlice = createSlice({
     name: "hamster",
     initialState,
     reducers: {
-        incrementCount(state, action: PayloadAction<number>) {
-            state.count += action.payload;
+        incrementCount(state) {
+            const selectedLevelConfig = levelConfigurations.find(i => i.level === state.currentLevel) || {
+                level: state.currentLevel,
+                coins: state.currentLevel,
+                price: Math.round(10 * Math.pow(state.currentLevel, 2.5))
+            };
+
+            if (state.energy > 0) {
+                state.count += selectedLevelConfig.coins;
+                state.energy -= 1;
+            } else {
+                state.error = "No energy";
+            }
+
+            if (state.count >= selectedLevelConfig.price) {
+                state.currentLevel += 1;
+            }
         },
-        decrementEnergy(state, action: PayloadAction<number>) {
-            state.energy = Math.max(0, state.energy - action.payload);
-        },
-        incrementEnergy(state, action: PayloadAction<number>) {
-            state.energy = Math.min(MAX_ENERGY, state.energy + action.payload);
-        },
-        levelUp(state) {
-            state.currentLevel += 1;
-        },
-        setError(state, action: PayloadAction<string>) {
-            state.error = action.payload;
+        incrementEnergy(state) {
+            if (state.energy < MAX_ENERGY) {
+                state.energy += 1;
+            }
         },
         clearError(state) {
             state.error = "";
@@ -41,7 +50,5 @@ const hamsterSlice = createSlice({
     },
 });
 
-export const { incrementCount, decrementEnergy, incrementEnergy, levelUp, setError, clearError } =
-    hamsterSlice.actions;
-
+export const { incrementCount, incrementEnergy, clearError } = hamsterSlice.actions;
 export default hamsterSlice.reducer;

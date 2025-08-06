@@ -1,23 +1,16 @@
 import ProgressBar from "@ramonak/react-progress-bar";
-import styled from "styled-components";
-import type {LevelProgressBarProps} from "../TopInfoPanel.tsx";
+import {useAppSelector} from "../../../../../common/hooks/hooks.ts";
+import {useLevelConfig} from "../../../../../common/hooks/useLevelConfig.ts";
+import {ProgressBarPanel} from "./LevelProgressBarStyles.tsx";
 
+export const LevelProgressBar = () => {
 
-export const ProgressBarPanel = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 200px;
-    p{
-        font-family: "Outfit", sans-serif;
-        font-weight: 600;
-        color: white;
-    }
-`
-export const LevelProgressBar = (props: LevelProgressBarProps) => {
-    const {currentLevel, count, selectedLevelConfigurations} = props
+    const { count } = useAppSelector(state => state.hamster);
+    const selectedLevelConfigurations = useLevelConfig()
+
     return (
         <ProgressBarPanel>
-            <p>Level: {currentLevel}</p>
+            <p>Level: {selectedLevelConfigurations.level}</p>
             <ProgressBar completed={count!}
                          maxCompleted={selectedLevelConfigurations.price}
                          isLabelVisible={false}
