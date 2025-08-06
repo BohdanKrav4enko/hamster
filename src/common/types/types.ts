@@ -5,3 +5,8 @@ export type Ability = {
     income: number;
     owned: number;
 };
+export type LevelConfig = {
+    level: number;
+    coins: number;
+    price: number;
+};
