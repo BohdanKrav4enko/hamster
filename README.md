@@ -1,69 +1,117 @@
-# React + TypeScript + Vite
+# Hamster Clicker 🐹
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 💫 About The Project
 
-Currently, two official plugins are available:
+**Hamster Clicker** is a fun interactive clicker game built with React and TypeScript.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The project was created as a small practice project to explore game mechanics, state management, and building interactive user interfaces.
 
-## Expanding the ESLint configuration
+The main idea is simple: click the hamster, collect points, and enjoy the gameplay experience.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## ✨ Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- 🐹 Interactive hamster clicking
+- 🪙 Score tracking
+- ⚡ Dynamic state updates
+- 🎨 Custom styled interface
+- 📱 Responsive design
+- 🔄 Global state management
+- 🎮 Simple game mechanics
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## 🛠️ Technologies
+
+### Frontend
+
+- React
+- TypeScript
+- Vite
+- Redux Toolkit
+- Styled Components
+
+### Tools
+
+- ESLint
+- Prettier
+- Git
+- Vercel
+
+---
+
+## 🚀 Getting Started
+
+### Clone repository
+
+```bash
+git clone https://github.com/BohdanKrav4enko/hamster.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm install
 ```
+
+### Start development server
+
+```bash
+pnpm dev
+```
+
+---
+
+## 📦 Production Build
+
+Create production build:
+
+```bash
+pnpm build
+```
+
+Preview production version:
+
+```bash
+pnpm preview
+```
+
+---
+
+## 🌐 Live Demo
+
+🐹 https://hamster-click.vercel.app/
+
+---
+
+## 🎯 Project Goals
+
+This project was created to practice:
+
+- React component development
+- TypeScript usage
+- State management with Redux Toolkit
+- Creating interactive interfaces
+- Working with Styled Components
+- Building small frontend games
+
+---
+
+## 👨‍💻 Author
+
+**Bohdan Kravchenko**
+
+Frontend Developer specializing in React and TypeScript
+
+GitHub:
+https://github.com/BohdanKrav4enko
+
+Portfolio:
+https://bohdankrav4enko.vercel.app/
+
+---
+
+## 📄 License
+
+This project was created for educational and personal practice purposes.
